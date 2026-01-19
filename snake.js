@@ -24,7 +24,7 @@ window.onload = function(){
     context = board.getContext("2d");
 
     localMaca();
-    document.addEventListener("keyup", mudarDirecao);
+    document.addEventListener("keydown", mudarDirecao);
     
     setInterval(update, 1000/10);
 }
@@ -61,7 +61,7 @@ function update(){
     }
 
     //game over
-    if (snakeX < 0 || snakeX > colunas*tamanhoBlocos || snakeY < 0 || snakeY > linhas*tamanhoBlocos){
+    if (snakeX < 0 || snakeX >= colunas*tamanhoBlocos || snakeY < 0 || snakeY >= linhas*tamanhoBlocos){
         gameOver = true;
         alert("Fim de Jogo");
     }
@@ -69,7 +69,7 @@ function update(){
     for (let i = 0; i < corpoSnake.length; i++){
         if (snakeX == corpoSnake[i][0] && snakeY == corpoSnake[i][1]){
             gameOver = true;
-            alert = ("Fim de Jogo");
+            alert("Fim de Jogo");
         }
     }
 }
